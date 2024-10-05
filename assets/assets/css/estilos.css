@@ -1,0 +1,207 @@
+:root {
+    /* COLORES */
+    --background-body: rgb(176, 70, 185); /* Fondo que envuelve todo */
+    --background-caja: #f11bb1; /* Color fondo caja */
+    --color-cajitas: #2faacf; /* Color fondo botones */
+    --color-p: rgb(112, 54, 189); /* Color texto botones */
+    --hover-color: #127dc5; /* Color de hover para botones */
+}
+
+:root{
+    /* TONO */
+    --tono: 11;
+    --complemento: 0;
+
+     /* COLORES */
+    --color-primario: hsla(var(--tono), 176, 70, 185); /* Color fondo botones */
+    --color-primario-medio: hsla(var(--tono), 40%, 40%, 1); 
+    --color-primario-claro: hsla(var(--tono), 40%, 92%, 1); /* Color fondo caja */ /* Color texto botones */
+    --color-primario-oscuro: hsla(var(--tono), 50%, 20%, 1); /* Color de hover para botones */
+    --color-primario-oscuro-medio: hsla(var(--tono), 50%, 30%, 1);
+
+    --color-complemento: hsla(var(--complemento), 0%, 100%, 1); /* Fondo que envuelve todo */ 
+}
+
+body {
+    font-family: "Palanquin Dark", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200vh;
+    margin: 0;
+    background-color: var(--color-complemento);
+}
+
+.caja {
+    background-color: var(--color-primario-claro);
+    width: 90%; /* Usar porcentaje para más flexibilidad */
+    max-width: 700px; /* Limitar ancho máximo */
+    padding: 0px;
+    border: 1px solid var(--border-caja); /* Ajustar el borde a 10px */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 10px 30px rgba(0, 0, 0, 0.3); /* Sombreado exterior aumentado */
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 20px;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+.imagen {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 0px 0px 10px;
+    grid-row: 1 / span 3;    
+}
+
+.caja:hover {
+    transform: translateY(10px); /* Baja la card al pasar el ratón */
+}
+
+.contenido {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 10px;
+}
+
+h1 {
+    margin-top: 20px;
+    color: var(--color-primario-oscuro);
+}
+
+p {
+    margin: center column;
+    margin-right: 20px;
+    color: var(--color-primario-oscuro);
+}
+
+.cajitas {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+
+}
+
+.cajita {
+    width: 100%;
+    height: 50px;
+    background-color: var(--color-primario);
+    box-sizing: border-box;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center; /* Centra el texto horizontalmente */
+    align-items: center; /* Centra el texto verticalmente */
+    text-decoration: none; /* Sin subrayado en el texto */
+    color: white; /* Color del texto */
+    font-weight: bold; /* Texto en negrita */
+    transition: background-color 0.3s; /* Efecto de transición */
+}
+
+.cajita img {
+    width: 20px; /* Ajusta el tamaño del logo */
+    height: 20px; /* Ajusta el tamaño del logo */
+    margin-right: 8px; /* Espacio entre el logo y el texto */
+}
+
+.cajita:hover {
+    background-color: var(--color-primario-oscuro); /* Cambia el color al pasar el mouse */
+}
+
+/* Media queries para diseño responsive */
+
+@media screen and (max-width: 500px) {
+    .caja {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 700px) {
+    .caja {
+        grid-template-columns: 1fr; /* Mantiene una sola columna */
+        
+    }
+
+    h1{
+        margin-left: 20px;
+        margin-top: -10px;
+        text-align: center;
+    }
+
+    p{
+        margin-left: 20px;
+    }
+
+    .cajitas{
+        flex: 2;
+        padding: 0px;
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-left: 20px;
+        margin-bottom: 20px;
+    }
+
+    .imagen {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px 10px 0px 0px;
+        grid-row: 1 / span 3;    
+    }
+
+}
+
+@media screen and (min-width: 764px) {
+    .caja {
+        grid-template-columns: 250px 1fr; /* Dos columnas en pantallas más grandes */
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .caja {
+        grid-template-columns: 300px 1fr;
+        height: auto;
+    }
+    
+    .imagen {
+        margin-bottom: 0; /* Asegura que la imagen se ajuste al borde inferior */
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .caja {
+        grid-template-columns: 350px 1fr;
+        height: auto;
+    }
+
+    .imagen {
+        margin-bottom: 0; /* Asegura que la imagen se ajuste al borde inferior */
+    }
+}
+
+@media screen and (min-width: 1750px) {
+    .caja {
+        grid-template-columns: 400px 1fr;
+        height: auto;
+        width: 80%; /* Ajustar el ancho según el tamaño de pantalla */
+    }
+
+    .imagen {
+        margin-bottom: 0; /* Asegura que la imagen se ajuste al borde inferior */
+    }
+}
+
+/* Animación */
+@keyframes flotar {
+    0% {
+        transform: translateY(0); /* Posición inicial */
+    }
+    50% {
+        transform: translateY(-10px); /* Eleva la tarjeta */
+    }
+    100% {
+        transform: translateY(0); /* Regresa a la posición inicial */
+    }
+}
